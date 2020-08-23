@@ -5,11 +5,10 @@ cache: npm
 
 before_script:
   - cd functions
-  - echo $FIREBASE_TOKEN
   - npm ci
   - npm install firebase-tools -g
   - npm run build
-script: firebase deploy --only functions --token "1//07vtr5He30L17CgYIARAAGAcSNwF-L9Ir8DpHPSE8i8HaIrgvIUGpQY5ueU0TtXYsYzwlZ3sa9z6nEYDbab4cgkayfiUZN_al3dc"
+script: firebase deploy --only functions --token $FIREBASE_TOKEN
 
 branches:
   only:
