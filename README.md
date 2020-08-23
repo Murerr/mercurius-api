@@ -1,5 +1,5 @@
 # mercurius
-Typescript REST API Using Firebase Functions
+Typescript REST API CRUD Operation Using Firebase Functions
 
 ## Project setup
 ```
@@ -22,3 +22,7 @@ firebase deploy
 ### Lints and fixes files
 ```
 npm run lint
+```
+
+### Run In Postman
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9249536fae797ae253ea)

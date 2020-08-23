@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "node"
+cache: npm
+
+script: cd functions && npm run build
+
+deploy:
+  provider: firebase
+  token: "1//07vtr5He30L17CgYIARAAGAcSNwF-L9Ir8DpHPSE8i8HaIrgvIUGpQY5ueU0TtXYsYzwlZ3sa9z6nEYDbab4cgkayfiUZN_al3dc"
+  skip_cleanup: true
+  message: $TRAVIS_PULL_REQUEST_BRANCH $TRAVIS_JOB_WEB_URL
+  local_dir: dist
+  on:
+    branch: travis
+
+
