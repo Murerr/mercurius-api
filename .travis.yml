@@ -3,7 +3,7 @@ node_js:
   - "node"
 cache: npm
 
-script: npm ci && cd functions && npm run build
+script: cd functions && npm ci && npm run build
 
 deploy:
   provider: firebase
