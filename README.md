@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Murerr/mercurius.svg?branch=master)](https://travis-ci.org/Murerr/mercurius)
 # mercurius
 Typescript REST API CRUD Operation Using Firebase Functions
 
