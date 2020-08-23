@@ -6,14 +6,8 @@ cache: npm
 jobs:
   include:
     - stage: build
-      script: cd functions
-        - npm ci
-        - npm install firebase-tools -g
-        - npm run build
+      script: cd functions && npm ci && npm install firebase-tools -g && npm run build
       if: branch != master
     - stage: deploy
-      script: cd functions
-        - npm ci
-        - npm install firebase-tools -g
-        - firebase deploy --only functions --token $FIREBASE_TOKEN
+      script: cd functions && npm ci && npm install firebase-tools -g && firebase deploy --only functions --token $FIREBASE_TOKEN
       if: branch = master
