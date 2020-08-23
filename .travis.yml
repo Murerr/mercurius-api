@@ -3,13 +3,14 @@ node_js:
   - "node"
 cache: npm
 
-before_script:
-  - cd functions
-  - npm ci
-  - npm install firebase-tools -g
-  - npm run build
-script: firebase deploy --only functions --token $FIREBASE_TOKEN
-
-branches:
-  only:
-    - master
+jobs:
+  include:
+    - stage: build
+      script: cd functions
+        - npm ci
+        - npm install firebase-tools -g
+        - npm run build
+      if: branch != master
+    - stage: deploy
+      script: firebase deploy --only functions --token $FIREBASE_TOKEN
+      if: branch = master
