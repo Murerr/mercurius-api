@@ -12,4 +12,4 @@ script: firebase deploy --only functions --token $FIREBASE_TOKEN
 
 branches:
   only:
-    - travis
+    - master
