@@ -22,7 +22,7 @@ app.get('/ping', (req, res) => {
 	res.send('pong');
 });
 
-/* BASIC CRUD OPERATION*/
+/* BASIC CRUD OPERATIONS*/
 
 /* Create */
 app.post('/addtodo', async (req, res, next) => {
@@ -99,7 +99,5 @@ class Todo implements TodoConfig{
 	toPlainObj(): {title?: string; description?: string; checked?: boolean; dateCreated?: string; dateChecked?: string } {
 		return Object.assign({}, this);
 	}
-
-
 }
 
