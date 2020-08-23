@@ -3,15 +3,14 @@ node_js:
   - "node"
 cache: npm
 
-script: cd functions && npm ci && npm run build
+before_script:
+  - npm ci
+  - npm install firebase-tools -g
+  - cd functions
+  - npm ci
+  - npm run build
+script: firebase deploy --only functions --token "1//07vtr5He30L17CgYIARAAGAcSNwF-L9Ir8DpHPSE8i8HaIrgvIUGpQY5ueU0TtXYsYzwlZ3sa9z6nEYDbab4cgkayfiUZN_al3dc"
 
-deploy:
-  provider: firebase
-  token: "1//07vtr5He30L17CgYIARAAGAcSNwF-L9Ir8DpHPSE8i8HaIrgvIUGpQY5ueU0TtXYsYzwlZ3sa9z6nEYDbab4cgkayfiUZN_al3dc"
-  skip_cleanup: true
-  message: $TRAVIS_JOB_WEB_URL
-  local_dir: dist
-  on:
-    branch: travis
-
-
+branches:
+  only:
+    - travis
