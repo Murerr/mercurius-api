@@ -26,4 +26,4 @@ npm run lint
 ```
 
 ### Run In Postman
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9249536fae797ae253ea)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/9249536fae797ae253ea)
