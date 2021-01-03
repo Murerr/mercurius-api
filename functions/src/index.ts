@@ -22,6 +22,20 @@ app.get('/ping', (req, res) => {
 	res.send('pong');
 });
 
+app.get('/products', async (req, res, next) => {
+	db.collection('products').get()
+		.then( (todos) => {
+			res.json(todos.docs.map(doc => doc.data()));
+		}).catch(next);
+});
+
+app.get('/categories', async (req, res, next) => {
+	db.collection('categories').get()
+		.then( (todos) => {
+			res.json(todos.docs.map(doc => doc.data()));
+		}).catch(next);
+});
+
 /* BASIC CRUD OPERATIONS*/
 
 /* Create */
