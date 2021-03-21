@@ -24,8 +24,14 @@ app.get('/ping', (req, res) => {
 
 app.get('/products', async (req, res, next) => {
 	db.collection('products').get()
-		.then( (todos) => {
-			res.json(todos.docs.map(doc => doc.data()));
+		.then( (product) => {
+			res.json(
+				product.docs.map(doc => {
+					const temp_product = doc.data();
+					temp_product['id'] = doc.id;
+					return temp_product;
+				})
+			);
 		}).catch(next);
 });
 
