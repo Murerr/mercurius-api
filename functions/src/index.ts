@@ -35,6 +35,28 @@ app.get('/products', async (req, res, next) => {
 		}).catch(next);
 });
 
+/*
+	Takes a list of product_id and return the corresponding product, amount of is done on the front end
+	Ex: [{ "id":"vT1232132kWY2jemSaj8r", "quantity":1}]
+ */
+app.post('/savedcart', async (req, res, next) => {
+	const references = JSON.parse(req.body).map( (product: { id: any; }) => {
+		return db.collection('products').doc(product.id);
+	});
+
+	db.getAll(...references).then( (docs) => {
+		res.json(
+			docs.map(doc => {
+				const temp_product = doc.data();
+				if (temp_product) {
+					temp_product['id'] = doc.id;
+				}
+				return temp_product;
+			})
+		);
+	}).catch(next);
+});
+
 app.get('/categories', async (req, res, next) => {
 	db.collection('categories').get()
 		.then( (todos) => {
