@@ -40,7 +40,7 @@ app.get('/products', async (req, res, next) => {
 	Ex: [{ "id":"vT1232132kWY2jemSaj8r", "quantity":1}]
  */
 app.post('/savedcart', async (req, res, next) => {
-	const references = JSON.parse(req.body).map( (product: { id: any; }) => {
+	const references = JSON.parse(req.body.cartCookie).map( (product: { id: any; }) => {
 		return db.collection('products').doc(product.id);
 	});
 
