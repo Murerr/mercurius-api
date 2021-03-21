@@ -44,7 +44,7 @@ app.post('/savedcart', async (req, res, next) => {
 	if (!reqBody) {
 		res.sendStatus(500);
 	}
-	const references = reqBody.cartCookie.map( (product: { id: any; }) => {
+	const references = reqBody.map( (product: { id: any; }) => {
 		return db.collection('products').doc(product.id);
 	});
 
