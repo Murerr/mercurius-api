@@ -55,7 +55,9 @@ app.post('/savedcart', async (req, res, next) => {
 				return temp_product;
 			})
 		}).catch(next);
-		return res.json(result).end();
+		res.json(result);
+		res.end();
+		return;
 	} catch (err) {
 		return res.status(500).send('Incorrect Req Body' + '\n' +
 			'/savedcart Takes a list of JSON product_id and return the corresponding product, amount of is done on the front end'+ '\n' +
